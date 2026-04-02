@@ -4,15 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Wishlist extends Model
 {
     //
-    /**
- * @var string[]
- */
-    protected $fillable = [
+    protected array $fillable = [
         'user_id',
         'product_id',
-        'quantity',
-    ];      
+    ];
 }
