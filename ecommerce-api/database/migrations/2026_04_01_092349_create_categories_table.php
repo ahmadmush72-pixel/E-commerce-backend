@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('categories');
             $table->boolean('is_active')->default(true); // 'active or on active
             $table->timestamps();
         });

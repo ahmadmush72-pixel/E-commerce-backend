@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->string('tracking_number')->nullable();
             $table->string('courier_name')->nullable();   
+            $table->string('status')->default('pending'); // pending, shipped, delivered
             $table->timestamp('shipped_at')->nullable();
             $table->timestamp('delivered_at')->nullable();           
             $table->timestamps();

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Category;
+
 class Product extends Model
 {
     /**
@@ -18,6 +20,10 @@ class Product extends Model
         'image',
         'status',
     ];
-
-   
+ public function category(){
+    return $this->belongsTo(Category::class);
+ }
+   public function carts(){
+    return $this->belongsToMany(Cart::class)->withPivot('quantity')->withTimestamps(); 
+}
 }

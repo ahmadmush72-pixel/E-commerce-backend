@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;   
 
 class Cart extends Model
 {
@@ -14,5 +15,12 @@ class Cart extends Model
         'user_id',
         'product_id',
         'quantity',
-    ];      
+    ];    
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function products(){
+        return $this->belongsToMany(Product::class)->withPivot('quantity')->withTimestamps();
+    }
 }
