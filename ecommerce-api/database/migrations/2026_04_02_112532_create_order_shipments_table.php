@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('order_shipments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
+            $table->foreignId('shipping_method_id')->constrained();
             $table->string('tracking_number')->nullable();
             $table->string('courier_name')->nullable();   
             $table->string('status')->default('pending'); // pending, shipped, delivered
