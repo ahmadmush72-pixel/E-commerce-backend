@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('color')->nullable();
             $table->decimal('price', 10, 2);    
             $table->integer('stock')->default(0)->nullable();
+            $table->unique(['product_id', 'size', 'color']);
             $table->timestamps();
         });
     }

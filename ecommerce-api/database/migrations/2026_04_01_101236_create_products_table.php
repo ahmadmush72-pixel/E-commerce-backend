@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->boolean('status')->default(1);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // JazzCash, Easypaisa, COD
+            $table->string('payment_gateway')->nullable(); // JazzCash API etc.// JazzCash, Easypaisa, COD
             $table->timestamps();
         });
     }

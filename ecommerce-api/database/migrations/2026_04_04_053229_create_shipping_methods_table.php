@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('courier_name'); // TCS, Leopard
             $table->decimal('cost', 10, 2);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

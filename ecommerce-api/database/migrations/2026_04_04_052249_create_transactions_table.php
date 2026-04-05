@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('payment_id')->constrained()->cascadeOnDelete();
             $table->string('transaction_id');
+            $table->text('response')->nullable(); // Store the full response from the payment gateway for reference
             $table->timestamps();
         });
     }

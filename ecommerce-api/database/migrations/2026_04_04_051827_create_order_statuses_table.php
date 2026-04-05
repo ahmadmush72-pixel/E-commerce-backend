@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // pending, shipped, delivered
+            $table->string('name'); 
+            $table->string('slug')->unique(); // pending, processing, shipped
+            $table->integer('sequence')->default(0); // flow order
+            $table->boolean('is_final')->default(false); // delivered, cancelled
+            $table->string('color')->nullable(); // UI purpose// pending, shipped, delivered
             $table->timestamps();
         });
     }
