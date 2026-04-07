@@ -7,7 +7,10 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Address;
+use App\Models\Order;
 use App\Models\Cart;
+use App\Models\Whishlist;
 
 class User extends Authenticatable
 {
@@ -47,7 +50,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function addresses(){
+        return $this->hasMany(Address::class);
+    }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
     public function cart(){
         return $this->hasOne(Cart::class);
+    }
+    public function whishlist(){
+        return $this->hasOne(Whishlist::class);
     }
 }
