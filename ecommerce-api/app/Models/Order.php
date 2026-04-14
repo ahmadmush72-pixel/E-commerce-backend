@@ -5,6 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;    
 use App\Models\Address;
+use App\Models\OrderItem;
+use App\Models\OrderStatus;
+use App\Models\OrderStatusHistory;
+use App\Models\Payment;
+use App\Models\Shipment;
 class Order extends Model
 {
     //
@@ -20,5 +25,20 @@ class Order extends Model
     }
     public function addresses(){
         return $this->hasMany(OrderItem::class);
+    }
+    public function orderItems(){
+        return $this->hasMany(OrderItem::class);
+    }
+    public function orderStatus(){
+        return $this->belongsTo(OrderStatus::class);
+    }
+    public function OrderStatusHistories(){
+        return $this->hasMany(OrderStatus::class);
+    }
+    public function payment(){
+        return $this->hasOne(Payment::class);
+    }
+    public function shipments(){
+        return $this->hasMany(Shipment::class);
     }
 }

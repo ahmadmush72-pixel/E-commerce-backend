@@ -16,6 +16,9 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained();
             $table->foreignId('shipping_method_id')->constrained();
             $table->string('tracking_number')->nullable();
+            $table->string('status')->default('pending');
+            $table->timestamp('shipped_at')->nullable();
+            $table->timestamp('delivered_at')->nullable();
             $table->timestamps();
         });
     }

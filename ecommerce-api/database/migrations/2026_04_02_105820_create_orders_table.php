@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('address_id')->constrained()->onDelete('cascade');
+            $table->foreignId('status_id')->constrained('order_statuses');
             $table->text('shipping_address'); 
             $table->string('payment_method')->nullable();
             $table->string('payment_status')->default('pending');
             $table->decimal('subtotal', 10, 2);      // products total
             $table->decimal('delivery_fee', 10, 2);  // shipping charges
             $table->decimal('total_amount', 10, 2);
-            $table->foreignId('status_id')->constrained('order_statuses');
             $table->timestamps();
         });
     }

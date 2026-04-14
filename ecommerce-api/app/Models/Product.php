@@ -10,6 +10,7 @@ use App\Models\ProductImage;
 use App\Models\ProductVariant;
 use App\Models\CartItem;
 use App\Models\WhishlistItem;
+use App\Models\OrderItem;
 class Product extends Model
 {
     /**
@@ -41,6 +42,9 @@ class Product extends Model
       }
       public function wishlistItems(){
          return $this->hasMany(WhishlistItem::class);
+      }
+      public function orderItems(){
+         return $this->hasMany(OrderItem::class);
       }
 
 }
